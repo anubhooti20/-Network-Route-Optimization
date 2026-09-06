@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,9 +54,10 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Match the PDF paths (/nodes, /edges) without forcing a trailing slash.
-# Support both /nodes and /nodes/ in urls.py so curl and the browsable API work.
 APPEND_SLASH = False
+
+if "test" in sys.argv:
+    MIGRATION_MODULES = {"network": None}
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [],

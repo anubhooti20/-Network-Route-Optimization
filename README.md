@@ -8,9 +8,12 @@ Django REST API that models a directed network, finds the lowest-latency path be
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+python manage.py makemigrations network
 python manage.py migrate
 python manage.py runserver
 ```
+
+Migration files stay local (they are gitignored). Create them on each machine with `makemigrations` before `migrate`.
 
 The API listens on `http://127.0.0.1:8000`. Paths work with or without a trailing slash.
 

@@ -6,3 +6,6 @@ db.sqlite3
 .DS_Store
 *.egg-info/
 .pytest_cache/
+
+# Generate locally with: python manage.py makemigrations
+**/migrations/
